@@ -1,0 +1,42 @@
+<html>
+    <title>Show Post</title>
+        <link rel='stylesheet', href='/stylesheets/style.css'>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/structure.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/card.css">
+    <body>
+        <h3>
+            <b><%= postdetail.blogtitle %> </b> 
+        </h3>
+        <img src="<%= typeof postdetail.blogimage != 'undefined' ? postdetail.blogimage : '' %>" width="500">
+        <p> <%= postdetail.blogcontent %></p>
+        <br>
+        <br>
+        <h3><b>Comments</b></h3>
+        <% 
+        if (typeof comments != 'undefined' && comments != null) {
+                comments.forEach( function ( commentData ){
+                        %>
+                    <p> <%= commentData.comment %> </p>
+                        <% });
+                    } %>
+        <h3><b>Add a Comment</b></h3>
+        <form action="/post/<%= postdetail._id %>" method="POST">
+            <fieldset class="boxBody">
+              <label for="comment"><B>Comment</B></label>
+              <textarea type="text" id="comment" placeholder="write the comment.." name="comment" style="width :500px; height: 30px;"  required></textarea>
+              <br>
+              <br>
+            <input type="submit" value="Send" class="btn" id="addPostSubmit">
+            
+            </fieldset>
+            </form>
+        </form>
+        <br>
+        
+        <form action="/post/<%= postdetail._id %>/delete" method="POST">
+            <input type="hidden" value="<%= postdetail._id %>" id="id">
+            <button type="submit" class="btnLogin">Delete Post</button>
+        </form>
+    
+    </body>
+</html>

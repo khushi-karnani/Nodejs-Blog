@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Register Form</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/structure.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/card.css">
+
+</head>
+<body>
+	<div class="nav bar" id ="nav">
+		<a class="active" href="/"><button id='b1'>Home</button></a>
+		<a href="/post/addpost"><button id='b2'>Add Post</button></a>
+		<a href="#about"><button id='b3'>About</button></a>
+		<a href="#contact"><button id='b4'>Contact</button></a>
+	</div>
+	<%= typeof err != 'undefined' ? err : '' %>
+	
+	<%= typeof msg != 'undefined' ? msg : '' %>
+	<h1 style="text-align: center; font-family: Algerian;"> Register</h1>
+<form action="/user/register" method="post" class="box login" autocomplete="off">
+	<fieldset class="boxBody">
+	<label>Name</label>
+	  <input type="text" tabindex="1" placeholder="Enter Your Name" name="name" required>
+	  <label>Email</label>
+	  <input type="email" tabindex="1" placeholder="Enter Your Email Address" name="email" required>
+ 	<label>Password</label>
+	  <input type="password" tabindex="2"  name="password" required>
+	</fieldset>
+	<footer>
+	  <input type="submit" class="btnLogin" value="Register" tabindex="1">
+	</footer>
+
+</form>
+<input TYPE="button"class="btnLogin" value="Login"  onClick="parent.location='/user/login'">
+<input TYPE="button"class="btnLogin" value="Facebook"  onClick="parent.location='/user/auth/facebook'">
+</body>
+</html>

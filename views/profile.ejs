@@ -1,0 +1,32 @@
+<html>
+    <!-- include base.html-->
+    <head>
+        <title>Add Post</title>
+        <link rel='stylesheet', href='/stylesheets/style.css'>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/structure.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/card.css">
+    </head>
+    <body>
+      <div class="nav bar" id ="nav">
+        <a class="active" href="/"><button id='b1'>Home</button></a>
+        <a href="/post/addpost"><button id='b2'>Add Post</button></a>
+        <a href="#about"><button id='b3'>About</button></a>
+        <a href="#contact"><button id='b4'>Contact</button></a>
+    </div>
+      <br>
+    <div class="datails"> 
+      <div class="card"> 
+          <div class="container">
+            <strong>Name</strong>:<%= user.fullname %>  <br> 
+            <strong>Email</strong>:<%= user.email %> 
+            <br>
+            <h3>Facebook</h3>
+            <strong>Id</strong>:<%= user.facebook.id%>  <br> 
+            <strong>Name</strong>:<%= user.facebook.name%>  <br> 
+            <strong>Email</strong>:<%= user.facebook.email%> 
+          </div> 
+      </div> 
+    </div> 
+
+    </body>
+</html>

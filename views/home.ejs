@@ -1,0 +1,62 @@
+<!doctype html>
+<html> 
+    <head>
+            
+                    <title>Khushi's Blog</title>
+                    <link rel='stylesheet', href='/stylesheets/style.css'>
+                    <link rel='stylesheet', href='/stylesheets/card.css'>
+
+    </head>
+  
+    <body >
+            <div class="nav bar" id ="nav" >
+                <a class="active" href="/"><button id='b1'>Home</button></a>
+                <a href="/post/addpost"><button id='b2'>Add Post</button></a>
+                <a href="#about"><button id='b3'>About</button></a>
+                <a href="#contact"><button id='b4'>Contact</button></a>
+            </div>
+            <br>
+            <a href="/user/login"><button id='b5'>Login</button></a>
+                <a href="/user/register"><button id='b5'>Register</button></a>
+                <br>
+                <%= typeof msg != 'undefined' ? msg : '' %>
+      <table>
+          <tr>
+            <% for( let i = 0; i < posts.length; i++ ) { %>
+                <tr>
+                <td><div class="card"><br><br>
+                <img src="<%= typeof posts[i].blogimage != 'undefined' ? posts[i].blogimage : '' %>" width="500">
+                <div class="container">
+                  <h4><b><%= posts[i].blogtitle %> </b></h4>
+                  <p><a href="/post/<%= posts[i]._id %>">Read More</a></p> 
+                  <a href="/post/edit/<%= posts[i]._id %>" role="button"><button id='b1'>Edit Post</button></a>
+                </div>
+                </div>
+                </td>
+                </tr>
+            <% } %>
+            <td>
+            <div class="card"><br><br>
+            <img src="/images/blog2.jpg" width="500">
+            <div class="container">
+              <h4><b>Travel</b></h4>
+              <p>Up on the Hills <a href="/showPost">Read more</a></p>
+            </div>           
+
+        </div>
+        </td>
+        </tr>
+      </table>
+      <footer>
+            <div class="about" id="about">
+                <h3><br><br>//some text about me</h3>
+            </div>
+            <div class="contact" id="contact">
+                <h3>//contact and email address</h3>
+            </div>
+        </footer>
+    </body>
+</html>
+
+
+

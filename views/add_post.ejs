@@ -1,0 +1,37 @@
+<html>
+    <!-- include base.html-->
+    <head>
+        <title>Add Post</title>
+        <link rel='stylesheet', href='/stylesheets/style.css'>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/structure.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/card.css">
+    </head>
+    <body>
+      <div class="nav bar" id ="nav">
+        <a class="active" href="/"><button id='b1'>Home</button></a>
+        <a href="/post/addpost"><button id='b2'>Add Post</button></a>
+        <a href="#about"><button id='b3'>About</button></a>
+        <a href="#contact"><button id='b4'>Contact</button></a>
+    </div>
+    <br>
+        <input TYPE="button"class="btnLogin" value="Login"  onClick="parent.location='/user/login'">
+        <input TYPE="button"class="btnLogin" value="Register"  onClick="parent.location='/user/register'">
+        <input TYPE="button"class="btnLogin" value="Facebook"  onClick="parent.location='/user/auth/facebook'">
+        <%- include ('./index.ejs') -%>
+        <p style=" text-align:center;"><%= typeof err != 'undefined' ? err : '' %><br>
+	      <%= typeof msg != 'undefined' ? msg : '' %></p>
+          <form action="/post/addpost" method="POST" class="box login" autocomplete="off">
+            <fieldset class="boxBody">
+              <label for="title"><B>Title of your Blog</B></label>
+              <input type="text" id="title" name="blogtitle" placeholder="..blog title..">
+              <label for="blogcontent"><b>Content</b></label>
+              <textarea type="text" id="blogcontent" tabindex="1" placeholder="write the article.." name="blogcontent" style="width :500px; height: 500px;"  required></textarea>
+              <br>
+              <br>
+            <input type="submit" value="Submit" class="btnLogin" id="addPostSubmit">
+            
+            </fieldset>
+            </form>
+
+    </body>
+</html>
